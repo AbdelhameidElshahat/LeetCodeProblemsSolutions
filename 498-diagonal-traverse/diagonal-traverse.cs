@@ -3,8 +3,8 @@ public class Solution {
 {
     if (matrix.Length == 0 || matrix[0].Length == 0) return new int[0];
 
-    int m = matrix.Length; // Number of rows
-    int n = matrix[0].Length; // Number of columns
+    int m = matrix.Length; 
+    int n = matrix[0].Length; 
     int[] result = new int[m * n];
     int index = 0;
     int row = 0, col = 0;
@@ -12,6 +12,7 @@ public class Solution {
 
     while (row < m && col < n)
     {
+        // If moving upwards
         if (up)
         {
             while (row > 0 && col < n - 1)
