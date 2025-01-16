@@ -1,22 +1,29 @@
 public class Solution {
     public void Merge(int[] nums1, int m, int[] nums2, int n) {
+        int nums1ptr = 0 ; 
+        int nums2ptr = 0 ; 
+        int[] temp = new int [n+m];
 
-        for(int i = m  , j =0 ; i < nums1.Length && j <n ;i++ , j++){
-            nums1[i] = nums2[j];
+        for(int i = 0 ; i< temp.Length; i++){
+            if( nums1ptr == m ){
+                temp [i] = nums2[nums2ptr];
+                nums2ptr++;
+            }
+            else if (nums2ptr == n){
+                temp [i] = nums1[nums1ptr];
+                nums1ptr++;
+            }
+            else if ( nums1[nums1ptr] < nums2[nums2ptr] ){
+                temp [i] = nums1[nums1ptr];
+                nums1ptr++;
+            }
+            else if( nums2[nums2ptr] <= nums1[nums1ptr]){
+                temp[i] =nums2[nums2ptr];
+                nums2ptr++;
+            }
         }
-        Array.Sort(nums1);
-        // int [] nums3 = new int [m+n];
-        // int i = 0 ; int j =0 ;
-        // for (int index = 0 ; index  < nums3.Length ; index++){
-        //     if(nums1[i] <= nums2[j] &&  i < m -1){
-        //         nums3[index] = nums1[i];
-        //         i++;
-        //     }
-        //     else if ( nums2[j] < nums1[i] && j <n-1  ){
-        //         nums3[index] = nums2[j];
-        //         j++;
-        //     }
-        // }
-       
+       for (int i = 0 ; i < temp.Length; i++){
+        nums1[i] = temp[i];
+       }
     }
 }
