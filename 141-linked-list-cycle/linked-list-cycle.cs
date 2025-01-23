@@ -15,7 +15,7 @@ public class Solution {
         ListNode cur = head;
         if(head == null){
             return false;
-        }
+         } 
         while(cur != null){
             if(visitedNodes.Contains(cur)){
                 return true;
